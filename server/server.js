@@ -34,7 +34,7 @@ const pool = new Pool({
 })
 
 app.get('/api/v1/pets', (req, res) => {
-  pool.query("SELECT * FROM pet_types")
+  pool.query("SELECT * FROM pet_types") 
     .then(result => {
       const animal = result.rows
       res.json(animal)
@@ -49,13 +49,7 @@ app.get('/api/v1/pets/:animalType/:id', (req, res) => {
       .then(result => {
         const animal = result.rows
         client.release()
-        if(animal.length >app.get('/api/v1/pets', (req, res) => {
-          console.log("Hey")
-          pool.query("SELECT * FROM pet_types")
-        app.get('/', (req, res) => {
-          res.redirect("/pets")
-        })
-         0) {
+        if(animal.length > 0) {
           res.json(animal)
         } else {
           res.status(404).send("No animal exists")
@@ -65,9 +59,9 @@ app.get('/api/v1/pets/:animalType/:id', (req, res) => {
 })
 
 // Express routes
-app.get('/', (req, res) => {
-  res.redirect("/pets")
-})
+// app.get('/', (req, res) => {
+//   res.redirect("/pets")
+// })
 
 app.get('*', (req, res) => {
   res.render("home")

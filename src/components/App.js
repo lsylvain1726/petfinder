@@ -8,6 +8,7 @@ const App = props => {
   return (
     <BrowserRouter>
       <Switch>
+        <Route exact path="/pets" component={ListPets} />
         <Route exact path="/pets/:animalType/:id" component={PetShowContainer} />
         <Route path="*" component={NotFound} />
       </Switch>
