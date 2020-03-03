@@ -30,9 +30,25 @@ app.use(bodyParser.json())
 const { Pool } = require("pg")
 
 const pool = new Pool({
-  connectionString: "postgres://postgres:password@127.0.0.1:5432/adopt-a-pet"
+  connectionString: "postgres://postgres:password@127.0.0.1:5432/adopt_a_pet"
 })
 
+app.get('/api/pets/:type', (req, res) => {
+  const petTypeSearch = req.params.type
+  pool.query('SELECT * from pet_types WHERE type = $1', [petTypeSearch], (error, results) => {
+    if (error) {
+      throw error
+    } else {
+      const petTypeResults = results.rows[0].id
+      pool.query('SELECT * from adoptable_pets WHERE type_id = $1', [petTypeResults], (error, results) => {
+        if (error) {
+          throw error
+        } else {res.json(results.rows)
+        }
+      })
+    }
+  })
+})
 
 // Express routes
 app.get('*', (req, res) => {
