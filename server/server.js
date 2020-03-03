@@ -43,7 +43,8 @@ app.get('/api/pets/:type', (req, res) => {
       pool.query('SELECT * from adoptable_pets WHERE type_id = $1', [petTypeResults], (error, results) => {
         if (error) {
           throw error
-        } else {res.json(results.rows)
+        } else {
+          res.json(results.rows)
         }
       })
     }

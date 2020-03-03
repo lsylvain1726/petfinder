@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import PetTypeTile from './PetTypeTile'
+import { response } from 'express';
 
 const PetTypesContainer = props => {
     const [showPets, setShowPets] = useState([])
@@ -7,14 +8,27 @@ const PetTypesContainer = props => {
     useEffect(() => {
         const petType = props.match.params.type;
         fetch(`/api/pets/${petType}`)
-          .then(result => result.json())
+          .then(response => {
+            if (response.ok) {
+              return response
+            } else {
+              let errorMessage = `${response.status} (${response.statusText})`,
+                error = new Error(errorMessage)
+              throw error
+            }
+          })
+          .then(response => response.json())
           .then(data => {
-            setShowPets(data);
+            setShowPets(data)
+          })
+          .catch(error => {
+            console.error(`Error in fetch: ${error.message}`)
           });
     },[])
 
     const petTypeTiles = showPets.map(pet => {
         let vaccination_status = ""
+
         if (pet.vaccination_status === true) {
           vaccination_status = "Vaccinated"
         } else {
@@ -40,7 +54,6 @@ const PetTypesContainer = props => {
         {petTypeTiles}
       </div>
     );
-    
 }
 
 export default PetTypesContainer
