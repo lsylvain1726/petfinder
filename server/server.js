@@ -37,15 +37,16 @@ app.get('/api/v1/pets/:animalType/:id', (req, res) => {
   let petId = req.params.id
   let animalType = req.params.animalType
   pool.connect().then(client => {
-    client.query(`SELECT * FROM adoptable_pets JOIN pet_types ON pet_types.id = type_id WHERE adoptable_pets.id = ${petId} and pet_types.type = '${animalType}'`).then(result => {
-      const animal = result.rows
-      client.release()
-      if(animal.length > 0) {
-        res.json(animal)
-      } else {
-        res.status(404).send("No animal exists")
-      }
-    })
+    client.query(`SELECT * FROM adoptable_pets JOIN pet_types ON pet_types.id = type_id WHERE adoptable_pets.id = ${petId} and pet_types.type = '${animalType}'`)
+      .then(result => {
+        const animal = result.rows
+        client.release()
+        if(animal.length > 0) {
+          res.json(animal)
+        } else {
+          res.status(404).send("No animal exists")
+        }
+      })
   })
 })
 
@@ -59,7 +60,6 @@ app.get('*', (req, res) => {
 app.use((req, res, next) => {
   next(createError(404))
 })
-
 
 app.listen(3000, "0.0.0.0", () => {
   console.log("Server is listening...")
