@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react'
+import { Redirect } from "react-router-dom"
 import PetShow from "./PetShow"
 
 const PetShowContainer = (props) => {
   const [pet, setPet] = useState({})
+  const [shouldRedirect, setShouldRedirect] = useState(false)
+
   const petId = props.match.params.id
   const animalType = props.match.params.animalType
   useEffect(() => {
@@ -20,8 +23,15 @@ const PetShowContainer = (props) => {
     .then(body => {
       setPet(body[0])
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
+    .catch(error => {
+      //console.error(`Error in fetch: ${error.message}`)
+      setShouldRedirect(true)
+    })
   }, {})
+
+  if (shouldRedirect) {
+    return <Redirect to="/pets" />
+  }
 
   return (
     <PetShow
