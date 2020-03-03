@@ -1,1 +1,11 @@
 /* your styles, here */
+.list-pet-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper-pet-info {
+  margin: 0 auto;
+  text-align: center;
+}
