@@ -40,11 +40,13 @@ app.get('/api/v1/pets', (req, res) => {
     .then(result => {
       const animal = result.rows
       res.json(animal)
-    })
-  
+    })  
 })
 
 // Express routes
+app.get('/', (req, res) => {
+  res.redirect("/pets")
+})
 app.get('*', (req, res) => {
   res.render("home")
 })
