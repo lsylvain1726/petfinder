@@ -3,11 +3,17 @@ import Pet from "./Pet"
 
 const ListPets = props => {
     const [petType, setPetType] = useState([])
+
     useEffect(() => {
         fetch('/api/v1/pets')
             .then(response => response.json())
             .then(data => {
                 setPetType(data)
+            })
+            .catch(error => {
+                error.text().then(errorMessage => {
+                    this.props.dispactch(displayError(errorMessage))
+                })
             })
     }, [])
 
