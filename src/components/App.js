@@ -1,8 +1,17 @@
 import React from "react"
 import { Route, Switch, BrowserRouter } from "react-router-dom"
+import PetShowContainer from "./PetShowContainer"
+import NotFound from "./NotFound"
 
 const App = props => {
-  return <div>Replace this div with your Router.</div>
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/pets/:animalType/:id" component={PetShowContainer} />
+        <Route path="*" component={NotFound} />
+      </Switch>
+    </BrowserRouter>
+  )
 }
 
 export default App

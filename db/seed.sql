@@ -11,3 +11,7 @@ VALUES
   ('Mocha',1,false,'Found on the streets','no',(SELECT id FROM pet_types WHERE id = 2 LIMIT 1)),
   ('Margeaux',100,false,'Abandoned at fire station','no',(SELECT id FROM pet_types WHERE id = 2 LIMIT 1)),
   ('Josephina',7,true,'Too many sibilings, the dogs didnt like her','yes',(SELECT id FROM pet_types WHERE id = 2 LIMIT 1));
+
+
+SELECT * FROM adoptable_pets JOIN pet_types ON pet_types.id = type_id
+WHERE adoptable_pets.id = 1 and pet_types.type = 'dog';
