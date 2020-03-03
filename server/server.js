@@ -7,6 +7,7 @@ const fs = require("fs")
 const _ = require("lodash")
 const createError = require("http-errors")
 
+
 const app = express()
 
 app.set("views", path.join(__dirname, "../views"))
@@ -30,9 +31,18 @@ app.use(bodyParser.json())
 const { Pool } = require("pg")
 
 const pool = new Pool({
-  connectionString: "postgres://postgres:password@127.0.0.1:5432/adopt-a-pet"
+  connectionString: "postgres://postgres:password@127.0.0.1:5432/adopt_a_pet"
 })
 
+app.get('/api/v1/pets', (req, res) => {
+  console.log("Hey")
+  pool.query("SELECT * FROM pet_types") 
+    .then(result => {
+      const animal = result.rows
+      res.json(animal)
+    })
+  
+})
 
 // Express routes
 app.get('*', (req, res) => {
@@ -44,3 +54,5 @@ app.listen(3000, "0.0.0.0", () => {
 })
 
 module.exports = app
+
+
