@@ -6,7 +6,7 @@ const PetTypesContainer = props => {
     const [showPets, setShowPets] = useState([])
 
     useEffect(() => {
-        const petType = props.match.params.type;
+      const petType = props.match.params.animalType;
         fetch(`/api/pets/${petType}`)
           .then(response => {
             if (response.ok) {
