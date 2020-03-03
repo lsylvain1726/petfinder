@@ -37,21 +37,36 @@ app.get('/api/v1/pets/:animalType/:id', (req, res) => {
   let petId = req.params.id
   let animalType = req.params.animalType
   pool.connect().then(client => {
-    client.query(`SELECT * FROM adoptable_pets JOIN pet_types ON pet_types.id = type_id WHERE adoptable_pets.id = ${petId} and pet_types.type = '${animalType}'`).then(result => {
-      const animal = result.rows
-      client.release()
-      if(animal.length > 0) {
-        res.json(animal)
-      } else {
-        res.status(404).send("No animal exists")
-      }
-    })
+    client.query(`SELECT * FROM adoptable_pets JOIN pet_types ON pet_types.id = type_id WHERE adoptable_pets.id = ${petId} and pet_types.type = '${animalType}'`)
+      .then(result => {
+        const animal = result.rows
+        client.release()
+        if(animal.length > 0) {
+          res.json(animal)
+        } else {
+          res.status(404).send("No animal exists")
+        }
+      })
   })
 })
 
 app.post('/api/v1/pets/:animalType/:id', (req, res) => {
-  console.log(req.body)
-
+  let petId = req.params.id
+  let animalType = req.params.animalType
+  const adoptionEntry = req.body.adoptionEntry
+  const { name, phone_number, email, home_status, application_status} = adoptionEntry
+  pool
+    .query("INSERT INTO adoptable_applications (name, phone_number, email, home_status, application_status VALUES ($1, $2, $3, $4, $5)", [
+      adoptionEntry.name,
+      adoptionEntry.phone_number,
+      adoptionEntry.email,
+      adoptionEntry.home_status,
+      adoptionEntry.application_status
+    ])
+    .catch(err => {
+      console.log(err)
+      res.sendStatus(500)
+    })
 })
 
 // Express routes

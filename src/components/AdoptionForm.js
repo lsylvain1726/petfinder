@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 
-const AdoptionForm = () => {
+const AdoptionForm = (props) => {
 
   const [petSubmitted, setPetSubmitted] = useState({
     name: "",
@@ -20,8 +20,8 @@ const AdoptionForm = () => {
     event.preventDefault()
 
     let formPayload = petSubmitted
-    
-
+    props.addAdoptablePet(formPayload)
+    clearPetAdoptionForm()
   }
 
   const clearPetAdoptionForm = event => {
@@ -35,7 +35,7 @@ const AdoptionForm = () => {
 
   return (
     <div>
-      <form>
+      <form onClick={handlePetAdoptionSubmit}>
         <div>
           <label htmlFor="name">Name</label>
           <input type="text" name="name" id="name" onChange={handlePetAdoptionChange} value={petSubmitted.name} />
