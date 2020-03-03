@@ -7,7 +7,6 @@ const fs = require("fs")
 const _ = require("lodash")
 const createError = require("http-errors")
 
-
 const app = express()
 
 app.set("views", path.join(__dirname, "../views"))
@@ -34,22 +33,6 @@ const pool = new Pool({
   connectionString: "postgres://postgres:password@127.0.0.1:5432/adopt_a_pet"
 })
 
-<<<<<<< HEAD
-app.get('/api/v1/pets', (req, res) => {
-  console.log("Hey")
-  pool.query("SELECT * FROM pet_types") 
-    .then(result => {
-      const animal = result.rows
-      res.json(animal)
-    })
-  
-})
-
-// Express routes
-app.get('/', (req, res) => {
-  res.redirect("/pets")
-})
-=======
 app.get('/api/v1/pets/:animalType/:id', (req, res) => {
   let petId = req.params.id
   let animalType = req.params.animalType
@@ -69,7 +52,6 @@ app.get('/api/v1/pets/:animalType/:id', (req, res) => {
 
 // Express routes
 
->>>>>>> d8fd7e2b5b56562f23f10803da501ae9fe1231f8
 app.get('*', (req, res) => {
   res.render("home")
 })
@@ -84,5 +66,3 @@ app.listen(3000, "0.0.0.0", () => {
 })
 
 module.exports = app
-
-
