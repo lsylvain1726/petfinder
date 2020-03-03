@@ -24,7 +24,6 @@ const PetShowContainer = (props) => {
       setPet(body[0])
     })
     .catch(error => {
-      //console.error(`Error in fetch: ${error.message}`)
       setShouldRedirect(true)
     })
   }, {})
