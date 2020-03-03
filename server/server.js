@@ -49,6 +49,11 @@ app.get('/api/v1/pets/:animalType/:id', (req, res) => {
   })
 })
 
+app.post('/api/v1/pets/:animalType/:id', (req, res) => {
+  console.log(req.body)
+
+})
+
 // Express routes
 
 app.get('*', (req, res) => {

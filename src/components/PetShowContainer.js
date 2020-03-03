@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Redirect } from "react-router-dom"
 import PetShow from "./PetShow"
+import AdoptionForm from "./AdoptionForm"
 
 const PetShowContainer = (props) => {
   const [pet, setPet] = useState({})
@@ -34,9 +35,12 @@ const PetShowContainer = (props) => {
   }
 
   return (
-    <PetShow
-      pet={pet}
-    />
+    <div>
+      <PetShow
+        pet={pet}
+      />
+      <AdoptionForm />
+    </div>
   )
 }
 
