@@ -45,6 +45,9 @@ app.get('/api/v1/pets', (req, res) => {
 })
 
 // Express routes
+app.get('/', (req, res) => {
+  res.redirect("/pets")
+})
 app.get('*', (req, res) => {
   res.render("home")
 })
