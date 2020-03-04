@@ -5,7 +5,7 @@ const PetTypesContainer = props => {
     const [showPets, setShowPets] = useState([])
 
     useEffect(() => {
-      const petType = props.match.params.animalType;
+        const petType = props.match.params.animalType;
         fetch(`/api/pets/${petType}`)
           .then(response => {
             if (response.ok) {
@@ -34,7 +34,7 @@ const PetTypesContainer = props => {
           vaccination_status = "Not vaccinated"
         }
         return (
-            <PetTypeTile 
+            <PetTypeTile
               key={pet.id}
               id={pet.id}
               name={pet.name}

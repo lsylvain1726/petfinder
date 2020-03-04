@@ -1,32 +1,37 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
-import Dogs from './Dogs'
-import Cats from './Cats'
-import Adoptable from './Adoptable'
+import { Route, Link, Switch} from 'react-router-dom'
 import PetTypesContainer from './PetTypesContainer'
+import PetShowContainer from './PetShowContainer'
+import ListPets from './ListPets'
+import NotFound from './NotFound'
+
 
 
 const NavBar = props =>{
     return(
-        <Fragment>
+        <div>
+            <h1>HELLO TESTING HERE</h1>
             <nav>
                 <ul>
                     <li>
-                        <Link to="/dogs">List Pets</Link>
+                        <Link to="/">HOME</Link>
+                    </li>
+
+                        <li>
+                            <Link to="/pets/dog">DOGS</Link>
+                        </li>
+                    <li>
+                        <Link to="/pets/cat">CATS</Link>
                     </li>
                 </ul>
-           
-            <Link to="/cats">CATS</Link>
-            <Link to="/home">HOME</Link>
-            <Link to="/adoptable">ADOPT ME!</Link>
         </nav>
         <Switch>
-            <Route exact path="/" component={PetTypesContainer}/>   
-            <Route exact path="/dogs" component={Dogs}/>
-            <Route exact path="/cats" component={Cats}/>
-            <Route exact path="/adoptable" component={Adoptable}/>
+            <Route exact path="/pets" component={ListPets} />
+            <Route exact path="/pets/:animalType/:id" component={PetShowContainer} />
+            <Route exact path="/pets/:animalType" component={PetTypesContainer} />
+            <Route path="*" component={NotFound} />
         </Switch>
-    </Fragment>
+        </div>
            
     )
 }

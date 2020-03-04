@@ -1,15 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import Pet from "./Pet"
+import NavBar from './NavBar';
 
 const ListPets = props => {
     const [petType, setPetType] = useState([])
+
     useEffect(() => {
         fetch('/api/v1/pets')
+        .then(response => {
+            if (response.ok) {
+              return response
+            } else{
+              let errorMessage = `${response.status} (${response.statusText})`, 
+                error = new Error(errorMessage)
+              throw(error)
+            }
+          })
             .then(response => response.json())
             .then(data => {
                 setPetType(data)
             })
+            .catch(error => {
+                error.text().then(errorMessage => {
+                    this.props.dispactch(displayError(errorMessage))
+                })
+            })
     }, [])
+
 
     const listPets = petType.map((pet) => {
         let petImage 
@@ -29,12 +46,12 @@ const ListPets = props => {
     })
 
     return (
+      <div>
         <ul>
            {listPets}
         </ul>
+      </div>
     )
 }
 
 export default ListPets;
-
-

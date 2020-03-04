@@ -21,8 +21,8 @@ const PetShow = (props) => {
             <li>Vaccination Status: {vaccinated}</li>
             <li>Adoption Story: {props.pet.adoption_story}</li>
           </ul>
-          <div className="button-wrapper">
-            <Link className="button" to="#">Adopt Me!</Link>
+          <div onClick={props.adoptMeClicked} className="button-wrapper">
+            <Link className={`button`} onClick={props.showForm} to="#">Adopt Me!</Link>
           </div>
         </div>
       </div>

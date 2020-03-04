@@ -7,7 +7,6 @@ const fs = require("fs")
 const _ = require("lodash")
 const createError = require("http-errors")
 
-
 const app = express()
 
 app.set("views", path.join(__dirname, "../views"))
@@ -35,7 +34,6 @@ const pool = new Pool({
 })
 
 app.get('/api/v1/pets', (req, res) => {
-  console.log("Hey")
   pool.query("SELECT * FROM pet_types") 
     .then(result => {
       const animal = result.rows
@@ -96,5 +94,3 @@ app.listen(3000, "0.0.0.0", () => {
 })
 
 module.exports = app
-
-
