@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import PetTypeTile from './PetTypeTile'
-import { response } from 'express';
 
 const PetTypesContainer = props => {
     const [showPets, setShowPets] = useState([])
@@ -35,7 +34,7 @@ const PetTypesContainer = props => {
           vaccination_status = "Not vaccinated"
         }
         return (
-            <PetTypeTile 
+            <PetTypeTile
               key={pet.id}
               id={pet.id}
               name={pet.name}
