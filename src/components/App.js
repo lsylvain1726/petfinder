@@ -9,8 +9,8 @@ const App = props => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/pets/:animalType/:id" component={PetShowContainer} />
-        <Route path="*" component={NotFound} />
         <Route exact path="/pets/:animalType" component={PetTypesContainer} />
+        <Route path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>
   )
