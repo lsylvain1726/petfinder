@@ -4,6 +4,10 @@
   display: block;
 }
 
+h2 {
+  color: #2f2fa2;
+}
+
 
 /* Button */
 
@@ -16,6 +20,31 @@
   background-color: #2f2fa2;
 }
 
+/* Home Page - Animal Card */
+
+.wrapper-animal {
+  padding: 3.25rem;
+  text-align: center;
+}
+
+.card-animal {
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
+}
+
+.card-animal img {
+  max-height: 170px;
+  width: 100%;
+}
+
+.card-animal-body {
+  padding: 1rem;
+  text-align: center;
+}
+
+.card-animal-title {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
 /* Individual Pet Page */
 
 .wrapper-individual-pet {

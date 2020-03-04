@@ -33,6 +33,14 @@ const pool = new Pool({
   connectionString: "postgres://postgres:password@127.0.0.1:5432/adopt_a_pet"
 })
 
+app.get('/api/v1/pets', (req, res) => {
+  pool.query("SELECT * FROM pet_types") 
+    .then(result => {
+      const animal = result.rows
+      res.json(animal)
+    })
+  })
+
 app.get('/api/pets/:animalType', (req, res) => {
   const petTypeSearch = req.params.animalType
   pool.query('SELECT * from pet_types WHERE type = $1', [petTypeSearch], (error, results) => {
@@ -94,7 +102,6 @@ app.post('/api/v1/pets/:animalType/:id', (req, res) => {
 })
 
 // Express routes
-
 app.get('*', (req, res) => {
   res.render("home")
 })
