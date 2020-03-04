@@ -6,7 +6,7 @@ const PetTypeTile = props => {
       <div>
         <Link to={`/pets/${props.petType}/${props.id}`}><img src={props.img_url} /></Link>
         <br />
-        <Link to={`/pets/${props.petType}/${props.id}`}>clecl{props.name}</Link>
+        <Link to={`/pets/${props.petType}/${props.id}`}>{props.name}</Link>
         <p>Age: {props.age}</p>
         <p>Vaccination Status: {props.vaccination_status}</p>
         <p>Pet ID: {props.id}</p>
