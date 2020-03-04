@@ -6,6 +6,7 @@ import AdoptionForm from "./AdoptionForm"
 const PetShowContainer = (props) => {
   const [pet, setPet] = useState({})
   const [shouldRedirect, setShouldRedirect] = useState(false)
+  const [showForm, setShowForm] = useState(false)
 
   const petId = props.match.params.id
   const animalType = props.match.params.animalType
@@ -26,9 +27,6 @@ const PetShowContainer = (props) => {
         }
       })
       .then(response => response.json())
-      .then(data => {
-        console.log(data)
-      })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
@@ -48,7 +46,6 @@ const PetShowContainer = (props) => {
       setPet(body[0])
     })
     .catch(error => {
-      //console.error(`Error in fetch: ${error.message}`)
       setShouldRedirect(true)
     })
   }, {})
@@ -57,12 +54,22 @@ const PetShowContainer = (props) => {
     return <Redirect to="/pets" />
   }
 
+  let adoptMeClicked = () => {
+    setShowForm(true)
+  }
+
   return (
     <div>
       <PetShow
         pet={pet}
+        adoptMeClicked={adoptMeClicked}
       />
-      <AdoptionForm addAdoptablePet={addAdoptablePet} />
+      <AdoptionForm 
+        addAdoptablePet={addAdoptablePet} 
+        animalType={animalType}
+        setShowForm={setShowForm}
+        showForm={showForm}
+      />
     </div>
   )
 }
