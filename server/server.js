@@ -33,6 +33,24 @@ const pool = new Pool({
   connectionString: "postgres://postgres:password@127.0.0.1:5432/adopt_a_pet"
 })
 
+app.get('/api/pets/:animalType', (req, res) => {
+  const petTypeSearch = req.params.animalType
+  pool.query('SELECT * from pet_types WHERE type = $1', [petTypeSearch], (error, results) => {
+    if (error) {
+      throw error
+    } else {
+      const petTypeResults = results.rows[0].id
+      pool.query('SELECT * from adoptable_pets WHERE type_id = $1', [petTypeResults], (error, results) => {
+        if (error) {
+          throw error
+        } else {
+          res.json(results.rows)
+        }
+      })
+    }
+  })
+})
+
 app.get('/api/v1/pets/:animalType/:id', (req, res) => {
   let petId = req.params.id
   let animalType = req.params.animalType
@@ -84,7 +102,6 @@ app.get('*', (req, res) => {
 app.use((req, res, next) => {
   next(createError(404))
 })
-
 
 app.listen(3000, "0.0.0.0", () => {
   console.log("Server is listening...")
