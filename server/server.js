@@ -68,6 +68,30 @@ app.get('/api/v1/pets/:animalType/:id', (req, res) => {
   })
 })
 
+app.post('/api/v1/pets/:animalType/:id', (req, res) => {
+  const adoptionEntry = req.body
+  const petId = req.body.petType
+  const selectQuery = `SELECT id FROM pet_types WHERE type = '${petId}'`
+  
+  const insertQuery = "INSERT INTO adoption_applications (name, phone_number, email, home_status, application_status, pet_id) VALUES ($1, $2, $3, $4, $5, $6)"
+    pool.query(selectQuery) 
+      .then((result) => {
+        const id = result.rows[0].id
+        return pool.query(insertQuery, [
+          adoptionEntry.name,
+          adoptionEntry.phoneNumber,
+          adoptionEntry.email,
+          adoptionEntry.homeStatus,
+          adoptionEntry.applicationStatus,
+          id
+      ])
+      })
+      .catch(err => {
+        console.log(err)
+        res.sendStatus(500)
+      })
+})
+
 // Express routes
 
 app.get('*', (req, res) => {
