@@ -6,6 +6,15 @@ const ListPets = props => {
 
     useEffect(() => {
         fetch('/api/v1/pets')
+        .then(response => {
+            if (response.ok) {
+              return response
+            } else{
+              let errorMessage = `${response.status} (${response.statusText})`, 
+                error = new Error(errorMessage)
+              throw(error)
+            }
+          })
             .then(response => response.json())
             .then(data => {
                 setPetType(data)
@@ -17,8 +26,10 @@ const ListPets = props => {
             })
     }, [])
 
+
     const listPets = petType.map((pet) => {
         let petImage
+        
         if (pet.type === "dog") {
             petImage = "https://www.trendingbreeds.com/wp-content/uploads/2019/08/fitz_thedood_2-large.jpg"
         } else {
