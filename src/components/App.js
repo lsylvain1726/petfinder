@@ -1,18 +1,22 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { Route, Switch, BrowserRouter } from "react-router-dom"
 import PetTypesContainer from "./PetTypesContainer"
 import PetShowContainer from "./PetShowContainer"
 import NotFound from "./NotFound"
+import Footer from "./Footer"
 
 const App = props => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/pets/:animalType/:id" component={PetShowContainer} />
-        <Route path="*" component={NotFound} />
-        <Route exact path="/pets/:animalType" component={PetTypesContainer} />
-      </Switch>
-    </BrowserRouter>
+    <Fragment>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/pets/:animalType/:id" component={PetShowContainer} />
+          <Route exact path="/pets/:animalType" component={PetTypesContainer} />
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </BrowserRouter>
+      <Footer />
+    </Fragment>
   )
 }
 

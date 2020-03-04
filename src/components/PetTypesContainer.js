@@ -25,6 +25,8 @@ const PetTypesContainer = props => {
           });
     },[])
 
+    console.log(showPets)
+
     const petTypeTiles = showPets.map(pet => {
         let vaccination_status = ""
 
@@ -49,8 +51,10 @@ const PetTypesContainer = props => {
     })
 
     return (
-      <div>
-        {petTypeTiles}
+      <div className="wrapper-pettypes">
+        <div className="row">
+          {petTypeTiles}
+        </div>
       </div>
     );
 }

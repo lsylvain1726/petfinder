@@ -44,6 +44,7 @@ app.get('/api/pets/:animalType', (req, res) => {
         if (error) {
           throw error
         } else {
+        
           res.json(results.rows)
         }
       })

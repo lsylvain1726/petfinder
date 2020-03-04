@@ -1,11 +1,118 @@
 /* your styles, here */
+
+.span-block {
+  display: block;
+}
+
+
+/* Button */
+
+.button {
+  background-color: #f64c72;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #2f2fa2;
+}
+
+/* Individual Pet Page */
+
+.wrapper-individual-pet {
+  padding: 3.75rem;
+}
+
+.card-pet-info {
+  margin: 0 auto;
+  text-align: center;
+}
+
 .list-pet-info {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.wrapper-pet-info {
-  margin: 0 auto;
+.list-pet-info img{
+  margin-bottom: 1rem;
+}
+
+.pet-info-title {
+  font-weight: 700;
+  color: #242582;
+}
+
+.button-wrapper {
+  margin-top: 1rem;
+}
+
+.button-wrapper .button {
+  width: 30%;
+}
+
+/* Adoption Form */
+
+.adoption-form {
+  margin-top: 1.5rem;
   text-align: center;
+  color: #2f2fa2;
+}
+
+.adoption-form .button-submit {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Pet Type Page Cards */
+
+.wrapper-pettypes {
+  padding: 3.75rem 0;
+}
+
+
+.list-pettype-info {
+  list-style: none;
+  margin: 0;
+}
+
+.list-pettype-info li {
+  margin-right: .625rem
+}
+
+.card-pet {
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
+  text-align: center;
+}
+
+.card-pet-header img{
+  max-height: 215px;
+  width: 100%;
+}
+
+.card-pet-body {
+  padding: .625rem;
+}
+
+.card-pet-footer {
+  padding: 1rem;
+  font-size: 20px;
+}
+
+.card-pet-footer a:after {
+  font-family: fontAwesome;
+  content: '\f0da';
+  margin-left: .625rem;
+}
+
+/* Footer */
+
+footer {
+  background-color: #2f2fa2;
+  color: #fff;
+  text-align: center;
+  padding: 1.25rem;
+}
+
+footer p {
+  margin-bottom: 0;
 }
