@@ -40,7 +40,7 @@ const PetTypesContainer = props => {
           petType = "cat"
         }
         return (
-            <PetTypeTile 
+            <PetTypeTile
               key={pet.id}
               id={pet.id}
               name={pet.name}
