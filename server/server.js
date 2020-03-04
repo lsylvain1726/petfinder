@@ -39,6 +39,8 @@ app.get('/api/v1/pets', (req, res) => {
       const animal = result.rows
       res.json(animal)
     })
+  })
+
 app.get('/api/pets/:animalType', (req, res) => {
   const petTypeSearch = req.params.animalType
   pool.query('SELECT * from pet_types WHERE type = $1', [petTypeSearch], (error, results) => {
