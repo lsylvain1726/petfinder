@@ -8,22 +8,26 @@ import PetTypesContainer from './PetTypesContainer'
 
 const NavBar = props =>{
     return(
-        <div>
-            <h3>Hello</h3>
-            <ul>
-            <Link to="/dogs">List Pets</Link>
+        <Fragment>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/dogs">List Pets</Link>
+                    </li>
+                </ul>
+           
             <Link to="/cats">CATS</Link>
             <Link to="/home">HOME</Link>
             <Link to="/adoptable">ADOPT ME!</Link>
-            </ul>
-       
+        </nav>
         <Switch>
             <Route exact path="/" component={PetTypesContainer}/>   
             <Route exact path="/dogs" component={Dogs}/>
             <Route exact path="/cats" component={Cats}/>
             <Route exact path="/adoptable" component={Adoptable}/>
         </Switch>
-        </div>
+    </Fragment>
+           
     )
 }
 
