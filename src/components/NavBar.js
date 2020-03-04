@@ -11,7 +11,6 @@ const NavBar = props =>{
     return(
         <BrowserRouter>
             <div>
-                <h1>HELLO TESTING HERE</h1>
                 <nav>
                     <ul>
                         <li>
@@ -27,7 +26,7 @@ const NavBar = props =>{
             </nav>
             <Switch>
                 <Route exact path="/pets" component={ListPets} />
-                <Route exact path="/pets/:animalType" component={PetTypesContainer} />
+                <Route exact path="/pets/:type" component={PetTypesContainer} />
                 <Route exact path="/pets/:animalType/:id" component={PetShowContainer} />
                 <Route path="*" component={NotFound} />
             </Switch>

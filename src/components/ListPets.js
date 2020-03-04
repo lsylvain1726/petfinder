@@ -39,6 +39,7 @@ const ListPets = props => {
             <Pet 
                 petImage= {petImage} 
                 key={pet.id}
+                id={pet.id}
                 type={pet.type}
                 description={pet.description}
             />
