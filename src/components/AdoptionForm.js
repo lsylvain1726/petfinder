@@ -84,28 +84,32 @@ const AdoptionForm = (props) => {
       <div className="form-submission-message">
           {message}
       </div>
-      <div className={`adoption-form ${clickedClass}`}>
+      <div className={`adoption-form row ${clickedClass}`}>
+        <hr />
+        <h2>Adoption Form</h2>
         <form onSubmit={handlePetAdoptionSubmit}>
           <ErrorList errors={errors} />
-          <div>
+          <div className="small-6 columns">
             <label htmlFor="name">Name</label>
             <input type="text" name="name" id="name" onChange={handlePetAdoptionChange} value={petSubmitted.name} />
           </div>
-          <div>
+          <div className="small-6 columns">
             <label htmlFor="phoneNumber">Phone Number</label>
             <input type="text" name="phoneNumber" id="phoneNumber" onChange={handlePetAdoptionChange} value={petSubmitted.phoneNumber} />
           </div>
-          <div>
+          <div className="small-6 columns">
             <label htmlFor="email">Email</label>
             <input type="text" name="email" id="email" onChange={handlePetAdoptionChange} value={petSubmitted.email} />
           </div>
-          <div>
+          <div className="small-6 columns">
             <label htmlFor="homeStatus">Home Status</label>
             <select name="homeStatus" id="homeStatus" onChange={handlePetAdoptionChange} value={petSubmitted.homeStatus}>
               {homeStatusOptions}
             </select>
           </div>
-          <input type="submit" className="button" value="Adopt Me Please!" />
+          <div className="small-12 columns">
+            <input type="submit" className="button button-submit" value="Adopt Me Please!" />
+          </div>
         </form>
       </div>
     </div>

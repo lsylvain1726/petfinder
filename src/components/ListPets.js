@@ -31,7 +31,7 @@ const ListPets = props => {
     const listPets = petType.map((pet) => {
         let petImage 
         if (pet.type === "dog") {
-            petImage = "https://www.trendingbreeds.com/wp-content/uploads/2019/08/fitz_thedood_2-large.jpg"
+          petImage = "https://www.trendingbreeds.com/wp-content/uploads/2019/08/fitz_thedood_2-large.jpg"
         } else {
           petImage ="https://www.humanesociety.org/sites/default/files/styles/1441x612/public/2018/08/kitten-440379.jpg?h=f6a7b1af&itok=HVqvfhtg" 
         }
@@ -46,11 +46,14 @@ const ListPets = props => {
     })
 
     return (
-      <div>
-        <ul>
-           {listPets}
-        </ul>
-      </div>
+        <div className="wrapper-animal">
+          <div className="row">
+            <div className="small-12 columns">
+              <h2>Adoptable Pets</h2>
+            </div>
+            {listPets}
+          </div>
+        </div>
     )
 }
 
