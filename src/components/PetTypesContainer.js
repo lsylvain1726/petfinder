@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import PetTypeTile from './PetTypeTile'
-import { response } from 'express';
 
 const PetTypesContainer = props => {
     const [showPets, setShowPets] = useState([])
