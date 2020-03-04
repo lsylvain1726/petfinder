@@ -59,7 +59,7 @@ const PetShowContainer = (props) => {
   }
 
   return (
-    <div>
+    <div className="wrapper-individual-pet">
       <PetShow
         pet={pet}
         adoptMeClicked={adoptMeClicked}
