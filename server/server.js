@@ -34,8 +34,8 @@ const pool = new Pool({
   connectionString: "postgres://postgres:password@127.0.0.1:5432/adopt_a_pet"
 })
 
-app.get('/api/pets/:animalType', (req, res) => {
-  const petTypeSearch = req.params.animalType
+app.get('/api/v1/pets/:type', (req, res) => {
+  const petTypeSearch = req.params.type
   pool.query('SELECT * from pet_types WHERE type = $1', [petTypeSearch], (error, results) => {
     if (error) {
       throw error
