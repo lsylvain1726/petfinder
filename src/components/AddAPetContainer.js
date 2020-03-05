@@ -22,9 +22,6 @@ const AddAPetContainer = props => {
             .then(response => {
                 response.json()
             })
-            .then(data => {
-                setForms([...forms, data])
-            })
             .catch(error => console.error(`Error in fetch: ${error.message}`))
     }
 
