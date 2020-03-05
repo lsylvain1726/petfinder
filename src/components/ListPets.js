@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Pet from "./Pet"
-import NavBar from './NavBar';
+import Pet from "./Pet";
 
 const ListPets = props => {
     const [petType, setPetType] = useState([])
