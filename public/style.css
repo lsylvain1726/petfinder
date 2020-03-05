@@ -20,11 +20,121 @@ h2 {
   background-color: #2f2fa2;
 }
 
+/* TopBar */
+
+.wrapper-topbar {
+  border-top: 4px solid #2f2fa2;
+  box-shadow: 0 8px 6px -6px #999;
+  z-index: 99;
+}
+
+.top-bar {
+  padding: 1.5rem .5rem;
+}
+
+.top-bar ul {
+  background-color: #fff;
+}
+
+.wrapper-topbar .top-bar {
+  background-color: #fff;
+}
+
+.top-bar-left img {
+  max-height: 90px;
+}
+
+.top-bar-right {
+  margin-top: 2.6rem;
+  padding-right: 3.75rem;
+}
+
+.top-bar-right .menu>li>a {
+  padding: .7rem 1.5rem;
+  font-size: 1.125rem;
+  color: #333;
+}
+
+/* Hero Header */
+
+.hero-header {
+  position: relative;
+  z-index: -1;
+  text-align:center;
+}
+
+.hero-img {
+  position: relative;
+}
+
+.hero-img:before {
+  content: "";
+  position: absolute;
+  left: 0; 
+  right: 0;
+  top: 0; 
+  bottom: 0;
+  background: rgba(0,0,0,.5);
+}
+
+.hero-caption {
+  position: absolute;
+  left: 150px;
+  right: 150px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-caption h2 {
+  font-size: 4rem;
+  color: #f64c72;
+}
+
+.hero-caption p {
+  color: #fff;
+}
+
 /* Home Page - Animal Card */
 
 .wrapper-animal {
   padding: 3.25rem;
   text-align: center;
+}
+
+.wrapper-animal-title {
+  display: block;
+  position: relative;
+  margin-bottom: 3rem;
+  padding-bottom: .625rem;
+}
+
+.card-animal-subtitle {
+  display: block;
+  color: #2f2fa2;
+}
+
+.wrapper-title-animal:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: -5px;
+  bottom: -4px;
+  background: #535353;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.wrapper-animal-title:after {
+  content: "";
+  border-bottom: 1px solid #f64c72;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 0;
+  width: 25%;
 }
 
 .card-animal {
@@ -45,7 +155,52 @@ h2 {
   font-size: 1.5rem;
   margin-top: 1rem;
 }
+
+.card-animal-subtitle {
+  color: #333;
+}
+
+.button-card-animal {
+  background-color: transparent;
+  color: #2f2fa2;
+  border: 4px solid #f64c72;
+  margin-top: 1rem;
+}
+
+.button-card-animal:hover,
+.button-card-animal:focus {
+  background-color: #fff;
+  color: #f64c72;
+  border: 4px solid #2f2fa2;
+}
+
 /* Individual Pet Page */
+
+.wrapper-interior-header {
+  position: relative;
+  z-index: -1;
+  min-height: 200px;
+}
+
+.wrapper-dog {
+  background: #eee url(http://localhost:3000/assets/images/dog-peek600.png) no-repeat 95% 100%;
+}
+
+.wrapper-cat {
+  background: #eee url(http://localhost:3000/assets/images/cat-header.png) no-repeat 95% 100%;
+}
+
+.wrapper-interior-animal {
+  background: #eee url(http://localhost:3000/assets/images/animal-header600.png) no-repeat 95% 20%;
+}
+
+.pet-header-title {
+  position: absolute;
+  color: #2f2fa2;
+  top: 50%;
+  transform: translateY(-50%);
+  text-transform: capitalize;
+}
 
 .wrapper-individual-pet {
   padding: 3.75rem;

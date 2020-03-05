@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 import { Redirect } from "react-router-dom"
 import PetShow from "./PetShow"
 import AdoptionForm from "./AdoptionForm"
@@ -59,18 +59,27 @@ const PetShowContainer = (props) => {
   }
 
   return (
-    <div className="wrapper-individual-pet">
-      <PetShow
-        pet={pet}
-        adoptMeClicked={adoptMeClicked}
-      />
-      <AdoptionForm 
-        addAdoptablePet={addAdoptablePet} 
-        animalType={animalType}
-        setShowForm={setShowForm}
-        showForm={showForm}
-      />
-    </div>
+    <Fragment>
+      <div className={`wrapper-interior-header wrapper-interior-animal`}>
+        <div className="row">
+          <div className="small-12 columns">
+            <h1 className="pet-header-title">Meet {pet.name}</h1>
+          </div>
+        </div>
+      </div>
+      <div className="wrapper-individual-pet">
+        <PetShow
+          pet={pet}
+          adoptMeClicked={adoptMeClicked}
+        />
+        <AdoptionForm 
+          addAdoptablePet={addAdoptablePet} 
+          animalType={animalType}
+          setShowForm={setShowForm}
+          showForm={showForm}
+        />
+      </div>
+    </Fragment>
   )
 }
 
