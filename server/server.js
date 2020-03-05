@@ -38,8 +38,8 @@ app.get('/api/v1/pets', (req, res) => {
     .then(result => {
       const animal = result.rows
       res.json(animal)
-    })
-  })
+    })  
+})
 
 app.get('/api/v1/pets/:type', (req, res) => {
   const petTypeSearch = req.params.type
