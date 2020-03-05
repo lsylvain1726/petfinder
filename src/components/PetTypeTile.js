@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 
 const PetTypeTile = props => {
@@ -6,7 +6,7 @@ const PetTypeTile = props => {
       <div className="small-4 columns">
         <div className="card-pet">
           <div className="card-pet-header">
-            <Link to={`/pets/${props.id}`}><img src={props.img_url} /></Link>
+              <Link to={`/pets/${props.petType}/${props.id}`}><img src={props.img_url} /></Link>
           </div>
           <div className="card-pet-body">
             <ul className="list-pettype-info">
@@ -15,7 +15,7 @@ const PetTypeTile = props => {
             </ul>
           </div>
           <div className="card-pet-footer">
-            <Link to={`/pets/${props.id}`} className="pettype-name">Meet {props.name}</Link>
+              <Link to={`/pets/${props.petType}/${props.id}`} className="pettype-name">Meet {props.name}</Link>
           </div>
         </div>
       </div>
