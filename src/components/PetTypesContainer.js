@@ -3,9 +3,8 @@ import PetTypeTile from './PetTypeTile'
 
 const PetTypesContainer = props => {
     const [showPets, setShowPets] = useState([])
-
+    const petType = props.match.params.type;
     useEffect(() => {
-      const petType = props.match.params.type;
       fetch(`/api/v1/pets/${petType}`)
           .then(response => {
             if (response.ok) {
@@ -23,7 +22,7 @@ const PetTypesContainer = props => {
           .catch(error => {
             console.error(`Error in fetch: ${error.message}`)
           });
-    },[])
+    },[petType])
 
     const petTypeTiles = showPets.map(pet => {
         let vaccination_status = ""
