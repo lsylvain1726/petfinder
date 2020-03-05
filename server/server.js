@@ -88,35 +88,22 @@ app.get('/api/v1/surrenderedpets', (req, res) => {
 
 app.post('/api/v1/surrenderedpets', (req, res) => {
   const {name, phone_number, email, pet_name, pet_age, pet_type_id, pet_image_url, vaccination_status, application_status} = req.body
-  console.log(req.body)
-  console.log(name)
-  console.log(phone_number)
-  console.log(email)
-
-  //   req.body.phone_number,
-  //   req.body.email,
-  //   req.body.pet_name,
-  //   req.body.pet_age,
-  //   req.body.pet_type_id,
-  //   req.body.pet_image_url,
-  //   req.body.vaccination_status,
-  //   req.body.application_status)
-  // pool.query(
-  //   'INSERT INTO pet_surrender_applications (name, phone_number, email, pet_name, pet_age, pet_type_id, pet_image_url, vaccination_status, application_status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', [
-  //     req.body.name,
-  //     req.body.phone_number,
-  //     req.body.email,
-  //     req.body.pet_name,
-  //     req.body.pet_age,
-  //     req.body.pet_type_id,
-  //     req.body.pet_image_url,
-  //     req.body.vaccination_status,
-  //     req.body.application_status
-  // ])
-  //   .catch(error => {
-  //     console.log(error)
-  //     res.sendStatus(500)
-  //   })
+  pool.query(
+    'INSERT INTO pet_surrender_applications (name, phone_number, email, pet_name, pet_age, pet_type_id, pet_image_url, vaccination_status, application_status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', [
+      name,
+      phone_number,
+      email,
+      pet_name,
+      pet_age,
+      pet_type_id,
+      pet_image_url,
+      vaccination_status,
+      application_status
+  ])
+    .catch(error => {
+      console.log(error)
+      res.sendStatus(500)
+    })
   })
 
 app.post('/api/v1/pets/:animalType/:id', (req, res) => {

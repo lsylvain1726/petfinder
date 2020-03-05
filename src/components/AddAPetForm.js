@@ -1,7 +1,19 @@
 import React, { useState } from "react"
 
 const AddAPetForm = props => {
-    const [newForm, setNewForm] = useState({})
+    const defaultForm =  {
+        name: "",
+        phone_number: "",
+        email: "",
+        pet_name: "",
+        pet_age: "",
+        pet_type_id: "",
+        pet_image_url: "",
+        vaccination_status: "",
+        application_status: ""
+    }
+    
+    const [newForm, setNewForm] = useState(defaultForm)
 
     const handleChange = event => {
         setNewForm({
@@ -12,19 +24,27 @@ const AddAPetForm = props => {
     const handleSubmit = event => {
         event.preventDefault()
         const isVaccinated = (newForm.vaccination_status === "true")
+        let petTypeID
+        if (newForm.pet_type_id === "1") {
+            petTypeID = 1
+        } else {
+            petTypeID = 2
+        }
+
         let formPayload = {
             name: newForm.name,
             phone_number: newForm.phone_number,
             email: newForm.email,
             pet_name: newForm.pet_name,
             pet_age: newForm.pet_age,
-            pet_type_id: newForm.pet_type_id,
+            pet_type_id: petTypeID,
             pet_image_url: newForm.pet_image_url,
             vaccination_status: isVaccinated,
             application_status: "pending"
         }
         props.addNewForm(formPayload)
-        setNewForm({})
+        setNewForm(defaultForm)
+        alert('Your request is in progress.')
     }
 
     return (
@@ -45,13 +65,13 @@ const AddAPetForm = props => {
             <input name="pet_age" id="pet_age" type="number" onChange={handleChange} value={newForm.pet_age} />
 
             <label>Pet Type</label>
-            <select name="pet_type_id" id="pet_type_id" type="number" onChange={handleChange} value= {newForm.pet_type_id}>
+            <select name="pet_type_id" id="pet_type_id" onChange={handleChange} value= {newForm.pet_type_id}>
                 <option value="1">Dog</option>
                 <option value="2">Cat</option>
             </select>
 
             <label>Pet Image</label>
-            <input name="pet_image_url" id="pet_image_url" type="text" onChange={handleChange} value={newForm.pet_image} />
+            <input name="pet_image_url" id="pet_image_url" type="text" onChange={handleChange} value={newForm.pet_image_url} />
 
             <label>Vaccination Status</label>
             <select name="vaccination_status" id="vaccination_status" onChange={handleChange} value={newForm.vaccination_status}>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import AddAPetForm from "./AddAPetForm"
 
 const AddAPetContainer = props => {
-    const [forms, setForms] = useState({})
 
     const addNewForm = formPayload => {
         fetch("/api/v1/surrenderedpets", {
