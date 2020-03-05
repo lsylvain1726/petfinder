@@ -101,7 +101,6 @@ app.post('/api/v1/surrenderedpets', (req, res) => {
       application_status
   ])
     .catch(error => {
-      console.log(error)
       res.sendStatus(500)
     })
   })

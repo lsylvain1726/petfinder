@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import AddAPetForm from "./AddAPetForm"
 
 const AddAPetContainer = props => {
+    const [showForm, setShowForm] = useState(true)
 
     const addNewForm = formPayload => {
         fetch("/api/v1/surrenderedpets", {
@@ -25,7 +26,11 @@ const AddAPetContainer = props => {
     }
 
     return (
-        <AddAPetForm addNewForm={addNewForm} />
+        <AddAPetForm 
+            addNewForm={addNewForm} 
+            setShowForm={setShowForm}
+            showForm={showForm}
+        />
     )
 }
 export default AddAPetContainer

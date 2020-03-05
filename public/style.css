@@ -79,6 +79,13 @@ h2 {
   width: 30%;
 }
 
+/* Add A Pet Form */
+
+.add-a-pet-form {
+  margin-top: 1.5rem;
+  color: #2f2fa2;
+}
+
 /* Adoption Form */
 
 .adoption-form {
