@@ -87,12 +87,12 @@ app.get('/api/v1/surrenderedpets', (req, res) => {
 })
 
 app.post('/api/v1/surrenderedpets', (req, res) => {
-  console.log(req.body.name)
   const {name, phone_number, email, pet_name, pet_age, pet_type_id, pet_image_url, vaccination_status, application_status} = req.body
+  console.log(req.body)
   console.log(name)
   console.log(phone_number)
   console.log(email)
-  console.log(req.body)
+
   //   req.body.phone_number,
   //   req.body.email,
   //   req.body.pet_name,

@@ -45,7 +45,7 @@ const AddAPetForm = props => {
             <input name="pet_age" id="pet_age" type="number" onChange={handleChange} value={newForm.pet_age} />
 
             <label>Pet Type</label>
-            <select name="pet_type_id" id="pet_type_id" type="number" onChange={handleChange} value= {newForm.pet_type}>
+            <select name="pet_type_id" id="pet_type_id" type="number" onChange={handleChange} value= {newForm.pet_type_id}>
                 <option value="1">Dog</option>
                 <option value="2">Cat</option>
             </select>
