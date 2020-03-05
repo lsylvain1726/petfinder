@@ -15,7 +15,7 @@ const PetTypeTile = props => {
             </ul>
           </div>
           <div className="card-pet-footer">
-              <Link to={`/pets/${props.petType}/${props.id}`} className="pettype-name">Meet {props.name}</Link>
+              <Link to={`/pets/${props.petType}/${props.id}`} className="button button-pettype-name">Meet {props.name}</Link>
           </div>
         </div>
       </div>

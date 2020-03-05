@@ -1,11 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 import PetTypeTile from './PetTypeTile'
 
 const PetTypesContainer = props => {
     const [showPets, setShowPets] = useState([])
-
+    const petType = props.match.params.type;
     useEffect(() => {
-      const petType = props.match.params.type;
       fetch(`/api/v1/pets/${petType}`)
           .then(response => {
             if (response.ok) {
@@ -23,7 +22,7 @@ const PetTypesContainer = props => {
           .catch(error => {
             console.error(`Error in fetch: ${error.message}`)
           });
-    },[])
+    },[petType])
 
     const petTypeTiles = showPets.map(pet => {
         let vaccination_status = ""
@@ -55,17 +54,30 @@ const PetTypesContainer = props => {
         );
     })
 
+    let imageClassHeader = ""
+    if (petType === "dog") {
+      imageClassHeader = "dog"
+    } else if (petType === "cat") {
+      imageClassHeader = "cat"
+    } else {
+      imageClassHeader = ""
+    }
+
     return (
-      <div>
-        <div class="wrapper-interior-header">
-          <h1>{petType}</h1>
+      <Fragment>
+        <div className={`wrapper-interior-header wrapper-${imageClassHeader}`}>
+          <div className="row">
+            <div className="small-12 columns">
+              <h1 className="pet-header-title">Meet Our {petType}s</h1>
+            </div>
+          </div>
         </div>
         <div className="wrapper-pettypes">
           <div className="row">
             {petTypeTiles}
           </div>
         </div>
-      </div>
+      </Fragment>
     );
 }
 

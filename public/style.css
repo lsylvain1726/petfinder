@@ -176,6 +176,32 @@ h2 {
 
 /* Individual Pet Page */
 
+.wrapper-interior-header {
+  position: relative;
+  z-index: -1;
+  min-height: 200px;
+}
+
+.wrapper-dog {
+  background: #eee url(http://localhost:3000/assets/images/dog-peek600.png) no-repeat 95% 100%;
+}
+
+.wrapper-cat {
+  background: #eee url(http://localhost:3000/assets/images/cat-header.png) no-repeat 95% 100%;
+}
+
+.wrapper-interior-animal {
+  background: #eee url(http://localhost:3000/assets/images/animal-header600.png) no-repeat 95% 20%;
+}
+
+.pet-header-title {
+  position: absolute;
+  color: #2f2fa2;
+  top: 50%;
+  transform: translateY(-50%);
+  text-transform: capitalize;
+}
+
 .wrapper-individual-pet {
   padding: 3.75rem;
 }
