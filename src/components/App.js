@@ -12,7 +12,6 @@ const App = props => {
   return (
     <Fragment>
       <Header />
-      <HeroHeader />
       <BrowserRouter>
         <Switch>
           <Route exact path="/pets" component={ListPets} />

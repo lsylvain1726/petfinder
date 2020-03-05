@@ -8,7 +8,10 @@ const Pet = props => {
             <div class="card-animal-body">
               <Link to="/pets">
                   <img src={props.petImage} alt={props.type} /> 
-                  <h2 className="card-animal-title">{props.type}: {props.description}</h2>   
+              </Link>
+              <Link className="button button-card-animal" to="/pets">
+                  <span className="card-animal-title">Meet Our {props.type}</span>   
+                  <span class="card-animal-subtitle">{props.description}</span>
               </Link>
             </div>
           </div>

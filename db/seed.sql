@@ -1,7 +1,7 @@
 INSERT INTO pet_types(type, description)
 VALUES
-  ('dog', 'Fluffy and cute'),
-  ('cat', 'Angry litte monsters');
+  ('Dogs', 'Fluffy and cute'),
+  ('Cats', 'Angry litte monsters');
 
 INSERT INTO adoptable_pets(name, img_url, age, vaccination_status, adoption_story, adoption_status, type_id)
 VALUES

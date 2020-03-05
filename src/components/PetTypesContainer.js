@@ -56,9 +56,14 @@ const PetTypesContainer = props => {
     })
 
     return (
-      <div className="wrapper-pettypes">
-        <div className="row">
-          {petTypeTiles}
+      <div>
+        <div class="wrapper-interior-header">
+          <h1>{petType}</h1>
+        </div>
+        <div className="wrapper-pettypes">
+          <div className="row">
+            {petTypeTiles}
+          </div>
         </div>
       </div>
     );
