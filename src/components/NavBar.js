@@ -5,8 +5,6 @@ import PetShowContainer from './PetShowContainer'
 import ListPets from './ListPets'
 import NotFound from './NotFound'
 
-
-
 const NavBar = props =>{
     return(
         <BrowserRouter>
