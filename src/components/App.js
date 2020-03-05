@@ -5,10 +5,14 @@ import PetShowContainer from "./PetShowContainer"
 import NotFound from "./NotFound"
 import ListPets from './ListPets';
 import Footer from './Footer'
+import Header from './Header'
+import HeroHeader from './HeroHeader'
 
 const App = props => {
   return (
     <Fragment>
+      <Header />
+      <HeroHeader />
       <BrowserRouter>
         <Switch>
           <Route exact path="/pets" component={ListPets} />

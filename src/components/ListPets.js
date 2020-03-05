@@ -49,7 +49,7 @@ const ListPets = props => {
         <div className="wrapper-animal">
           <div className="row">
             <div className="small-12 columns">
-              <h2>Adoptable Pets</h2>
+              <h2 class="wrapper-animal-title">Our Adoptable Pets</h2>
             </div>
             {listPets}
           </div>

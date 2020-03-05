@@ -20,11 +20,115 @@ h2 {
   background-color: #2f2fa2;
 }
 
+/* TopBar */
+
+.wrapper-topbar {
+  border-top: 4px solid #2f2fa2;
+  box-shadow: 0 8px 6px -6px #999;
+  z-index: 99;
+}
+
+.top-bar {
+  padding: 1.5rem .5rem;
+}
+
+.top-bar ul {
+  background-color: #fff;
+}
+
+.wrapper-topbar .top-bar {
+  background-color: #fff;
+}
+
+.top-bar-left img {
+  max-height: 90px;
+}
+
+.top-bar-right {
+  margin-top: 2.6rem;
+  padding-right: 3.75rem;
+}
+
+.top-bar-right .menu>li>a {
+  padding: .7rem 1.5rem;
+  font-size: 1.125rem;
+  color: #333;
+}
+
+/* Hero Header */
+
+.hero-header {
+  position: relative;
+  z-index: -1;
+  text-align:center;
+}
+
+.hero-img {
+  position: relative;
+}
+
+.hero-img:before {
+  content: "";
+  position: absolute;
+  left: 0; 
+  right: 0;
+  top: 0; 
+  bottom: 0;
+  background: rgba(0,0,0,.5);
+}
+
+.hero-caption {
+  position: absolute;
+  left: 150px;
+  right: 150px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-caption h2 {
+  font-size: 4rem;
+  color: #f64c72;
+}
+
+.hero-caption p {
+  color: #fff;
+}
+
 /* Home Page - Animal Card */
 
 .wrapper-animal {
   padding: 3.25rem;
   text-align: center;
+}
+
+.wrapper-animal-title {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-bottom: .625rem;
+}
+
+.wrapper-title-animal:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: -5px;
+  bottom: -4px;
+  background: #535353;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.wrapper-animal-title:after {
+  content: "";
+  border-bottom: 1px solid #f64c72;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 0;
+  width: 25%;
 }
 
 .card-animal {
