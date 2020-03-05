@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Link, Switch, BrowserRouter } from "react-router-dom";
 import PetTypesContainer from "./PetTypesContainer";
 import PetShowContainer from "./PetShowContainer";
+import AddAPetContainer from "./AddAPetContainer"
 import ListPets from "./ListPets";
 import NotFound from "./NotFound";
 
@@ -25,6 +26,7 @@ const NavBar = props => {
         <Switch>
           <Route exact path="/pets" component={ListPets} />
           <Route exact path="/pets/:type" component={PetTypesContainer} />
+          <Route exat path="/adoptions/new" component={AddAPetContainer} />
           <Route
             exact
             path="/pets/:animalType/:id"
