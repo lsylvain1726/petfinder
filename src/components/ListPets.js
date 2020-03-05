@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import Pet from "./Pet";
+import React, { useEffect, useState, Fragment } from 'react';
+import Pet from "./Pet"
+import HeroHeader from "./HeroHeader"
 
 const ListPets = props => {
     const [petType, setPetType] = useState([])
@@ -46,14 +47,17 @@ const ListPets = props => {
     })
 
     return (
-        <div className="wrapper-animal">
-          <div className="row">
-            <div className="small-12 columns">
-              <h2>Adoptable Pets</h2>
+        <Fragment>
+          <HeroHeader />
+          <div className="wrapper-animal">
+            <div className="row">
+              <div className="small-12 columns">
+                <h2 className="wrapper-animal-title">Our Adoptable Pets</h2>
+              </div>
+              {listPets}
             </div>
-            {listPets}
           </div>
-        </div>
+        </Fragment>
     )
 }
 

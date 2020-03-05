@@ -1,14 +1,16 @@
-import React from "react";
-import { Route, BrowserRouter } from "react-router-dom";
-import NavBar from "./NavBar";
+import React, { Fragment } from "react"
+import { Route, Switch, BrowserRouter } from "react-router-dom"
+import NavBar from "./NavBar"
+import Footer from "./Footer"
 
-const App = props => {
+const App = (props) => {
   return (
-    <div>
+    <Fragment>
       <BrowserRouter>
         <Route path="/" component={NavBar} />
       </BrowserRouter>
-    </div>
+      <Footer />
+    </Fragment>
   );
 };
 
