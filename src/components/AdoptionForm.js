@@ -53,7 +53,7 @@ const AdoptionForm = (props) => {
 
     if (validForSubmission()) {
       props.addAdoptablePet(formPayload)
-      setMessage("Your Request is in Process")
+      setMessage("Thank you for your adoption request. Your Request is in Process and someone from our team will reach out to you shortly")
       props.setShowForm(false)
       clearPetAdoptionForm()
     }
@@ -79,29 +79,43 @@ const AdoptionForm = (props) => {
     clickedClass = "hide"
   }
 
+  let hideAdoptionMessage
+  if(message) {
+    hideAdoptionMessage = "show"
+  } else {
+    hideAdoptionMessage = "hide"
+  }
+
   return (
     <div className="wrapper-form">
-      <div className="form-submission-message">
-          {message}
+      <div className={hideAdoptionMessage}>
+        <hr />
+        <div className="row">
+          <div className="small-12 columns">
+            <div className="form-submission-message">
+                {message}
+            </div>
+          </div>
+        </div>
       </div>
       <div className={`adoption-form row ${clickedClass}`}>
         <hr />
         <h2>Adoption Form</h2>
         <form onSubmit={handlePetAdoptionSubmit}>
           <ErrorList errors={errors} />
-          <div className="small-6 columns">
+          <div className="small-12 medium-6 columns">
             <label htmlFor="name">Name</label>
             <input type="text" name="name" id="name" onChange={handlePetAdoptionChange} value={petSubmitted.name} />
           </div>
-          <div className="small-6 columns">
+          <div className="small-12 medium-6 columns">
             <label htmlFor="phoneNumber">Phone Number</label>
             <input type="text" name="phoneNumber" id="phoneNumber" onChange={handlePetAdoptionChange} value={petSubmitted.phoneNumber} />
           </div>
-          <div className="small-6 columns">
+          <div className="small-12 medium-6 columns">
             <label htmlFor="email">Email</label>
             <input type="text" name="email" id="email" onChange={handlePetAdoptionChange} value={petSubmitted.email} />
           </div>
-          <div className="small-6 columns">
+          <div className="small-12 medium-6 columns">
             <label htmlFor="homeStatus">Home Status</label>
             <select name="homeStatus" id="homeStatus" onChange={handlePetAdoptionChange} value={petSubmitted.homeStatus}>
               {homeStatusOptions}
