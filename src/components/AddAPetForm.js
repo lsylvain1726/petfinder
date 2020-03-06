@@ -49,7 +49,7 @@ const AddAPetForm = props => {
     props.addNewForm(formPayload)
     props.setShowForm(false)
     setNewForm(defaultForm)
-    setMessage("Your Request is in Process")
+    setMessage("Thank you for your form submission. Your surrender request is in process and someone from our team will reach out to you shortly")
   }
 
   let showHideForm
@@ -57,6 +57,13 @@ const AddAPetForm = props => {
     showHideForm = "show"
   } else {
     showHideForm = "hide"
+  }
+
+  let hideMessage
+  if(message) {
+    hideMessage = "show"
+  } else {
+    hideMessage = "hide"
   }
 
   return (
@@ -70,55 +77,73 @@ const AddAPetForm = props => {
         </div>
       </div>
 
-      <div className="form-submission-message">
-        {message}
-      </div>
-
       <div className="row">
         <div className="small-12 columns">
           <div className="surrender-pet-info">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>We understand how difficult a decision this must be to surrender your pet. We will do everything in our power to find a new family with a great home for your pet. In the meantime, they will be in the care of our staff and we will treat them as if they are a part of our family.</p>
           </div>
         </div>
       </div>
 
-      <div className="row">
+      <hr />
+
+      <div className={hideMessage}>
+        <div className="row">
+          <div className="small-12 columns">
+            <div className="form-submission-message">
+              {message}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={`add-a-pet-form row ${showHideForm}`}>
         <div className="small-12 columns">
-          <div className={`add-a-pet-form row ${showHideForm}`}>
-            <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="small-12 medium-6 columns">
               <label>Name</label>
               <input name="name" id="name" type="text" onChange={handleChange} value={newForm.name} />
-
+            </div>
+            <div className="small-12 medium-6 columns">
               <label>Phone Number</label>
               <input name="phone_number" id="phone_number" type="text" onChange={handleChange} value={newForm.phone_number} />
-
+            </div>
+            <div className="small-12 medium-6 columns">
               <label>E-mail</label>
               <input name="email" id="email" type="text" onChange={handleChange} value={newForm.email} />
-
+            </div>
+            <div className="small-12 medium-6 columns">
               <label>Pet Name</label>
               <input name="pet_name" id="pet_name" type="text" onChange={handleChange} value={newForm.pet_name} />
-
+            </div>
+            <div className="small-12 medium-6 columns">
               <label>Pet Age</label>
               <input name="pet_age" id="pet_age" type="number" onChange={handleChange} value={newForm.pet_age} />
-
+            </div>
+            <div className="small-12 medium-6 columns">
               <label>Pet Type</label>
               <select name="pet_type_id" id="pet_type_id" onChange={handleChange} value={newForm.pet_type_id}>
                 <option value="1">Dog</option>
                 <option value="2">Cat</option>
               </select>
-
+            </div>
+            <div className="small-12 medium-6 columns">
               <label>Pet Image</label>
               <input name="pet_image_url" id="pet_image_url" type="text" onChange={handleChange} value={newForm.pet_image_url} />
-
-              <label>Vaccination Status</label>
-                <select name="vaccination_status" id="vaccination_status" onChange={handleChange} value={newForm.vaccination_status}>
-                  <option value="true">Vaccinated</option>
-                  <option value="false">Not vaccinated</option>
-                </select>
-
-              <input name="button" type="submit" className="button" />
-            </form>
             </div>
+            <div className="small-12 medium-6 columns">
+              <label>Vaccination Status</label>
+              <select name="vaccination_status" id="vaccination_status" onChange={handleChange} value={newForm.vaccination_status}>
+                <option value="true">Vaccinated</option>
+                <option value="false">Not vaccinated</option>
+              </select>
+            </div>
+            <div className="small-12 columns">
+              <input name="button" type="submit" className="button" />
+            </div>
+          </div>
+        </form>
         </div>
       </div>
     </Fragment>   
