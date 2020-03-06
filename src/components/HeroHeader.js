@@ -8,7 +8,7 @@ const HeroHeader = (props) => {
         </div>
         <div className="hero-caption">
           <h2>Find Your New Friend Today!</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Welcome to Fluffy Meets Cuddles. The #1 place to find your next best friend. We have a great selection of both cats and dogs that are certified professional cuddlers and ready to fill your home with joy and warmth.</p>
         </div>
       </div>
   )
